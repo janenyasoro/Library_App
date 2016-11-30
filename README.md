@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# Library_App
+this is an application for managing book handling in a library
+>>>>>>> f9ffda5f9a6a644e778283a6ed48270d58593f34
