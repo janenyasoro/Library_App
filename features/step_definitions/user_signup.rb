@@ -1,5 +1,4 @@
 Given(/^I am a new user$/) do
-  
 end
 
 When(/^I visit the sign up page$/) do
