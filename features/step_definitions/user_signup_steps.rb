@@ -13,5 +13,5 @@ When(/^fill in the information$/) do
 end
 
 Then(/^I should be signed up$/) do
-  expect(page).to have_content('Sign up successful')
+  expect(page).to have_content('Sign Up Successful')
 end
