@@ -9,4 +9,6 @@ Feature: User Login and Logout
         When I visit the log in page
         And fill in my details
         Then I should be logged in
-        Then logout when l am done
+    Scenario: User can log out
+         Given am a logged in user
+         Then user can log out

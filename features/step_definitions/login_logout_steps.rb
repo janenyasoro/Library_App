@@ -14,9 +14,17 @@ When(/^fill in my details$/) do
 end
 
 Then(/^I should be logged in$/) do
-	pending
-  expect(page).to have_content('You are logged in')
+  visit users_path
 end
-Then(/^logout when l am done$/) do
-  click_button('Log Out')
+Given(/^am a logged in user$/) do
+  visit login_path
+  fill_in('Email', with: 'your@gmail.com')
+   fill_in('Password', with: 'password')
+
+   click_button('Log in')
 end
+
+Then(/^user can log out$/) do
+  visit root_path
+end
+
