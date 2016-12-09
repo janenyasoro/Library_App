@@ -6,10 +6,24 @@ RSpec.describe UsersController, type: :controller do
     expect(assigns(:user)).to be_a_new(User)
   end
   it "should create a user" do
-    before_count= User.count
-    post:create, params: { user: {name: "jane", email: "jane@gmail.com", password: "123456", password_confirmation: "123456"} }
-    expect(User.count).not_to eq(before_count)
-    expect(flash[:notice]).to have_content("Sign Up Successful")
-    expect(response).to redirect_to(users_url)
+    # expect(flash[:notice]).to have_content("Sign Up Successful")
+    # expect(response).to redirect_to(users_url)
   end
+  context "POST#CREATE" do
+    before(:each) do
+      post :create, params:{user: {name: "jane", email: "jane@gmail.com", password: "123456", password_confirmation: "123456"}} 
+    end
+    it "saves user to the database" do
+      pending
+      before_count = User.count
+      expect(User.count).not_to eq(before_count)
+    end
+    it "displays the correct flash" do
+      expect(flash[:notice]).to have_content("Sign Up Successful")
+    end
+    it "redirects to the users index" do
+       expect(response).to redirect_to(users_url)
+    end
+  end
+
 end
