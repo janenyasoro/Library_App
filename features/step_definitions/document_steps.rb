@@ -1,5 +1,4 @@
 Given(/^I am a current user$/) do
-logged_in
 end
 
 When(/^I visit the document page$/) do

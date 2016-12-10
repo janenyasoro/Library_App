@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   get 'edit'  => 'users#edit'
+  post 'update' => 'users#update'
 end

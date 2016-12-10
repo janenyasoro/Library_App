@@ -25,5 +25,18 @@ RSpec.describe UsersController, type: :controller do
        expect(response).to redirect_to(users_url)
     end
   end
-
+  context "GET#EDIT" do
+    it "returns a form for editing" do
+      user = FactoryGirl.create(:user)
+      get :edit, params: {id:user}
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:edit)
+    end
+    it "updates the last element details in the database" do
+      user = FactoryGirl.update(:user)
+      get :edit, params: {id: user}
+      put :update, params: {user: { email: "akinyi@gmail.com"}}
+      expect(User.where(email: "akinyi@gmail.com")).to be_present
+    end
+ end
 end
