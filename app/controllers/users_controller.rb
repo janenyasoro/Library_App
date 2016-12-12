@@ -19,6 +19,16 @@ class UsersController < ApplicationController
   def edit
   end
   def update
+    if password_blank?
+      flash[:notice] = "Password can't be blank"
+      render 'edit'
+    elsif @user.update_attributes(user_params)
+      log_in @user
+      flash[:notice] = "Password has been reset"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
     private
     def user_params
