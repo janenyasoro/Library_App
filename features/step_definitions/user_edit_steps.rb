@@ -1,8 +1,8 @@
 Given(/^I am a saved user$/) do
-  get '/edit'
+ user = FactoryGirl.create(:user)
 end
 When(/^I visit the edit page$/) do
- user = FactoryGirl.create(:user)
+  get '/edit'
 end
 
 When(/^edit the information$/) do

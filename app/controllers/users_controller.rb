@@ -17,18 +17,16 @@ class UsersController < ApplicationController
     end
   end
   def edit
+    @user = User.find_by(params[:id])
   end
   def update
-    if password_blank?
-      flash[:notice] = "Password can't be blank"
-      render 'edit'
-    elsif @user.update_attributes(user_params)
-      log_in @user
-      flash[:notice] = "Password has been reset"
-      redirect_to @user
+    @user = User.find_by(params[:id])
+   if @user.update_attributes(user_params)
+      flash[:success] = "Profile has been changed"
+      redirect_to users_url
     else
       render 'edit'
-    end
+   end
   end
     private
     def user_params
