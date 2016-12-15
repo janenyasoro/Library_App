@@ -10,6 +10,14 @@ class BooksController < ApplicationController
       redirect_to books_url, notice: "Book successfully added"
   end
 end
+  def edit
+    @book = Book.find_by(params[:id])
+  end
+  def update
+  end
+  def show
+    @book = Book.find_by(params[:id])
+  end
   private
   def book_params
     params.require(:book).permit(:title, :isbn, :quantity)

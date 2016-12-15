@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   put 'update' => 'users#update'
   get 'edit' => 'users#edit'
   resources :books
+  get 'books/:id/edit' => 'books#edit'
+  get 'edit' => 'books#edit'
 end
