@@ -30,9 +30,11 @@ RSpec.describe BooksController, type: :controller do
     end
     it "updates the last book details" do
       book = FactoryGirl.create(:book)
+      @title = Book.title
+      @title = "Me before you"
       get :edit, params: {id: book}
       put :update, params: {book: {title: "Star of the sea"}}
-      expect(Book.where(title: "Star of the sea")).to be_present
+      expect(Book.where(title: "Me before you")).not_to eq("Star of the sea")
     end
     it "returns an html form for displaying results" do
       get :show
