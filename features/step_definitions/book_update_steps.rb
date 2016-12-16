@@ -1,10 +1,8 @@
 Given(/^l am the existing book$/) do
   @book = FactoryGirl.create(:book)
 end
-When(/^l visit the update book page$/) do
+When(/^l visit the update book page and click on the Save Changes button$/) do
   visit edit_book_path(@book)
-end
-When(/^write the new details$/) do
   fill_in('Title', with: 'King of the Jungle')
   fill_in('ISBN', with: '1234')
 

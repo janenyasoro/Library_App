@@ -5,7 +5,6 @@ Feature: Book Update
 
     Scenario: admin can update the books
         Given l am the existing book
-        When l visit the update book page
-        And write the new details
+        When l visit the update book page and click on the Save Changes button
         Then the book details should be updated
         
