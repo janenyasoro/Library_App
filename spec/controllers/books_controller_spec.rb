@@ -28,14 +28,18 @@ RSpec.describe BooksController, type: :controller do
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:edit)
     end
+  end
+  context "PUT#UPDATE" do
     it "updates the last book details" do
       book = FactoryGirl.create(:book)
-      @title = Book.title
-      @title = "Me before you"
-      get :edit, params: {id: book}
+      #@title = Book.title
+      #@title = "Me before you"
+     # get :edit, params: {id: book}
       put :update, params: {book: {title: "Star of the sea"}}
       expect(Book.where(title: "Me before you")).not_to eq("Star of the sea")
     end
+  end
+  context "GET#SHOW" do
     it "returns an html form for displaying results" do
       get :show
       expect(response).to have_http_status(:success)
